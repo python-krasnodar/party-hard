@@ -1,0 +1,21 @@
+{% extends "surveys/layout.html" %}
+{% block header_text %}Results{% endblock %}
+{% block content %}
+
+    <table class="table">
+        {% for survey in object_list %}
+            <tr>
+                <th>{{ survey.user.username }}</th>
+                <td>
+                    {% if survey.going %}
+                        Going
+                    {% else %}
+                        Missing
+                    {% endif %}
+                </td>
+                <td>{{ survey.drink.title }}</td>
+            </tr>
+        {% endfor %}    
+    </ul>
+    
+{% endblock %}
