@@ -140,3 +140,7 @@ SOCIAL_AUTH_VK_OAUTH2_SCOPE = [
     'email',
     'photos',
 ]
+
+# Organization administration email and user id
+ORG_EMAIL = env('ORG_EMAIL')
+ORG_UID = env('ORG_UID')
