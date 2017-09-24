@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% block head_assets %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/layout.css" %}" />
+{% endblock %}
+{% block body %}
+
+    {% block navbar %}
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <a class="navbar-brand" href="#">{% block navbar_brand %}Party Hard{% endblock %}</a>
+    </nav>
+    {% endblock %}
+
+    <div class="wrapper">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>            
+    </div>
+    
+{% endblock %}

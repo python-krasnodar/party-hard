@@ -1,0 +1,30 @@
+{% extends "surveys/layout.html" %}
+{% block header_text %}Results{% endblock %}
+{% block content %}
+
+    <h1>Results</h1>
+    
+    <table class="table">
+        <tr>
+            <th>Photo</th>
+            <th>Full name</th>
+            <th>Going?</th>
+            <th>Drink</th>
+        </tr>
+        {% for survey in object_list %}
+            <tr>
+                <td><img src="{{ survey.user.profile.avatar_url }}" /></td>
+                <th>{{ survey.user.username }}</th>
+                <td>
+                    {% if survey.going %}
+                        Yes
+                    {% else %}
+                        No
+                    {% endif %}
+                </td>
+                <td>{{ survey.drink.title }}</td>
+            </tr>
+        {% endfor %}    
+    </ul>
+    
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "surveys/layout.html" %} 
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-3">Hello, {{ request.user.first_name }} {{ request.user.last_name }}!</h1>
+    <p class="lead">Please take a few minutes and answer these questions.</p>
+    <hr class="my-4">
+    
+    <form method="post" novalidate>
+        {% csrf_token %} 
+
+        <div class="form-group{% if form.going.errors %} has-danger{% endif %}">
+            <label for="{{ form.going.id_for_label }}" class="form-control-label">Are you going?</label>
+            <select id="{{ form.going.id_for_label }}" name="{{ form.going.name }}" class="form-control">
+                {% for val, label in form.going.field.choices %}
+                    <option value="{{ val }}"{% ifequal val form.going.value|add:"0" %} selected{% endifequal %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+            {% if form.going.errors %}
+                {% for error in form.going.errors %}
+                    <div class="form-control-feedback">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        
+        <hr class="my-4">
+
+        <div class="form-group{% if form.drink.errors %} has-danger{% endif %}">
+            <label for="{{ form.drink.id_for_label }}" class="form-control-label">What will you drink?</label>
+            <select id="{{ form.drink.id_for_label }}" name="{{ form.drink.name }}" class="form-control">
+                {% for val, label in form.drink.field.choices %}
+                    <option value="{{ val }}"{% ifequal val form.drink.value|add:"0" %} selected{% endifequal %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+            {% if form.drink.errors %}
+                {% for error in form.drink.errors %}
+                    <div class="form-control-feedback">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <hr class="my-4">
+
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,1 @@
+[{"model": "dictionaries.drink", "pk": 1, "fields": {"title": "Cola", "sorder": -10}}, {"model": "dictionaries.drink", "pk": 2, "fields": {"title": "Beer", "sorder": -5}}, {"model": "dictionaries.drink", "pk": 3, "fields": {"title": "Fanta", "sorder": 0}}, {"model": "dictionaries.drink", "pk": 4, "fields": {"title": "Russian Vodka", "sorder": 5}}]
