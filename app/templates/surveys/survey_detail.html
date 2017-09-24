@@ -1,5 +1,19 @@
 {% extends "surveys/layout.html" %}
-{% block header_text %}Result #{{ object.id }}{% endblock %}
 {% block content %}
-    
+<div class="jumbotron">
+    <h1 class="display-3">You already answered!</h1>
+    <p class="lead">You can delete your old answer or leave it as it is.</p>
+    <hr class="my-4">
+    <p class="lead">
+        {% if object.going %}
+            You are <strong>going</strong> to party! Your drink at the party - <strong>{{ object.drink.title }}</strong>!
+        {% else %}
+            You are <strong>missing</strong> party!
+        {% endif %}
+    </p>
+    <p class="lead">
+        <a class="btn btn-danger btn-lg" href="#" role="button">Delete</a>
+        <a class="btn btn-info btn-lg" href="#" role="button">Leave it</a>
+    </p>
+</div>
 {% endblock %}

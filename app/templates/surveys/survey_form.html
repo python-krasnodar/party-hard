@@ -1,9 +1,16 @@
-{% extends "surveys/layout.html" %}
+{% extends "surveys/layout.html" %} 
+
 {% block content %}
-<form method="post" novalidate>
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" />
-</form>
-<a href="{% url 'social:begin' 'vk-oauth2' %}">Login with GitHub</a><br>
+<div class="jumbotron">
+    <h1 class="display-3">Hello, {{ request.user.first_name }} {{ request.user.last_name }}!</h1>
+    <p class="lead">Please take a few minutes and answer these questions.</p>
+    <hr class="my-4">
+    
+    <form method="post" novalidate>
+        {% csrf_token %} {{ form }}
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
 {% endblock %}
