@@ -1,6 +1,6 @@
 {% extends "surveys/layout.html" %}
 {% block content %}
-<form method="post">
+<form method="post" novalidate>
     {% csrf_token %}
     {{ form }}
     <input type="submit" />

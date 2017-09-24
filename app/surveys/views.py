@@ -7,6 +7,7 @@ from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView, CreateView
 from .decorators import user_is_org, user_is_not_org
 from .models import Survey
+from .forms import SurveyForm
 
 
 @method_decorator(login_required, name='get')
@@ -28,7 +29,7 @@ class SurveysDetailView(DetailView):
 class SurveysCreateView(CreateView):
     """Surveys create view"""
     model = Survey
-    fields = ['going', 'drink']
+    form_class = SurveyForm
 
     def dispatch(self, request, *args, **kwargs):
         user = request.user
