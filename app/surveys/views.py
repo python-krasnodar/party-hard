@@ -3,7 +3,7 @@ Surveys views module.
 """
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView
 from users.decorators import user_is_org, user_is_not_org
 from .models import Survey
@@ -41,3 +41,11 @@ class SurveysCreateView(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(SurveysCreateView, self).form_valid(form)
+
+
+@login_required
+@user_is_not_org
+def delete_survey(request, pk):
+    survey = get_object_or_404(Survey, pk=pk)
+    survey.delete()
+    return redirect('surveys:create')
