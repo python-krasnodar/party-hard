@@ -197,3 +197,5 @@ ORG_EMAIL = env('ORG_EMAIL')
 ORG_UID = env('ORG_UID')
 
 LOGIN_URL = '/auth/login/vk-oauth2'
+
+CELERY_BROKER_URL = env('CELERY_BROKER_URL')
