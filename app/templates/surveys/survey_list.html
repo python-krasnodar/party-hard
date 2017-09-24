@@ -5,6 +5,7 @@
     <table class="table">
         {% for survey in object_list %}
             <tr>
+                <td><img src="{{ survey.user.profile.avatar_url }}" /></td>
                 <th>{{ survey.user.username }}</th>
                 <td>
                     {% if survey.going %}
