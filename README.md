@@ -26,6 +26,7 @@ Create a virtual environment:
 ```sh
 virtualenv -p python3.6 .venv
 source .venv/bin/activate
+pip instal -r requirements.txt
 ```
 
 Create an `.env` file with content similar to the `.env.dist` file. It will be necessary to substitute your secret data to connect to the PostgreSQL database (`DATABASE_URL`) and the message broker RabbitMQ (`CELERY_BROKER_URL`). 
