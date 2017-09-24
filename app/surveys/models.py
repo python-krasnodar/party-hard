@@ -4,6 +4,7 @@ Surveys models module.
 In this module contains models relating to the survey data.
 """
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext as _
 from django.contrib.auth.models import User
 from dictionaries.models import Drink
@@ -22,6 +23,10 @@ class Survey(models.Model):
         username = self.user.username
         is_going = _("Going") if self.going else _("Misses")
         return "{} {}".format(username, is_going)
+
+    def get_absolute_url(self):
+        """Return absolute url"""
+        return reverse('surveys:result', kwargs={'pk': self.id})
 
     class Meta:
         """Model metadata"""
