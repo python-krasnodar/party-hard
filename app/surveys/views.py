@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView, CreateView
-from .decorators import user_is_org, user_is_not_org
+from users.decorators import user_is_org, user_is_not_org
 from .models import Survey
 from .forms import SurveyForm
 
