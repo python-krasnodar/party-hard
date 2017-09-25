@@ -34,7 +34,7 @@ class SurveysCreateView(CreateView):
 
     def dispatch(self, request, *args, **kwargs):
         user = request.user
-        if Survey.objects.filter(user=user).exists() and hasattr(user.survey, 'id'):
+        if Survey.objects.filter(user=user).exists():
             return redirect('surveys:result', pk=user.survey.id)
         else:
             return super().dispatch(request, *args, **kwargs)
